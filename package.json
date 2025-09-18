@@ -1,25 +1,35 @@
 {
-  "name": "luxury-homes",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint"
-  },
-  "dependencies": {
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
-    "next": "15.5.3"
-  },
-  "devDependencies": {
-    "typescript": "^5",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "15.5.3",
-    "@eslint/eslintrc": "^3"
-  }
+	"name": "luxury-homes",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint",
+		"lint:fix": "eslint --fix"
+	},
+	"dependencies": {
+		"@types/three": "^0.180.0",
+		"aos": "^2.3.4",
+		"feather-icons": "^4.29.0",
+		"next": "15.5.3",
+		"react": "19.1.0",
+		"react-dom": "19.1.0",
+		"react-feather": "^2.0.10",
+		"styled-components": "^6.1.19",
+		"three": "^0.180.0",
+		"vanta": "^0.5.24"
+	},
+	"devDependencies": {
+		"@eslint/eslintrc": "^3",
+		"@types/aos": "^3.0.7",
+		"@types/feather-icons": "^4.29.4",
+		"@types/node": "^20",
+		"@types/react": "^19",
+		"@types/react-dom": "^19",
+		"eslint": "^9",
+		"eslint-config-next": "15.5.3",
+		"typescript": "^5"
+	}
 }

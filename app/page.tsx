@@ -1,95 +1,57 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client";
+import React, { useEffect } from "react";
+import Head from "next/head";
+import Header from "../components/common/Header/Header";
+import HeroSection from "../components/home/HeroSection/HeroSection";
+import WhyChooseUs from "@/components/home/WhyChooseUs/WhyChooseUs";
+import Testimonials from "@/components/home/Testimonials/Testimonials";
+import CallToAction from "@/components/home/CallToAction/CallToAction";
+import PropertyCard from "@/components/home/FeaturedProperties/PropertyCard";
+import { featuredProperties } from "@/utils/constants";
+import { Grid } from "@/components/home/FeaturedProperties/PropertyCard.styles";
+import Footer from "@/components/common/Footer/Footer";
 
-export default function Home() {
-  return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+const Home: React.FC = () => {
+	useEffect(() => {
+		// Initialize Feather Icons after component mounts
+		if (typeof window !== "undefined") {
+			import("feather-icons").then((feather) => {
+				feather.replace();
+			});
+		}
+	}, []);
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
-}
+	return (
+		<>
+			<Head>
+				<title>Luxury Homes | Find Your Dream Property</title>
+				<meta
+					name="description"
+					content="Discover luxury properties in the most desirable locations around the world"
+				/>
+				<meta name="viewport" content="width=device-width, initial-scale=1" />
+				<link rel="icon" href="/favicon.ico" />
+			</Head>
+
+			<Header />
+			<main>
+				<HeroSection />
+				<Grid>
+					{featuredProperties.map((property, index) => (
+						<PropertyCard
+							key={property.id}
+							property={property}
+							delay={index * 100}
+						/>
+					))}
+				</Grid>
+				<WhyChooseUs />
+				<Testimonials />
+				<CallToAction />
+			</main>
+			<Footer />
+		</>
+	);
+};
+
+export default Home;
