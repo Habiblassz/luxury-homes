@@ -25,7 +25,7 @@ const Testimonials: React.FC = () => {
 				<S.Header>
 					<S.Title data-aos="fade-up">What Our Clients Say</S.Title>
 					<S.Subtitle data-aos="fade-up" data-aos-delay="100">
-						Don{`&apos`}t just take our word for it - hear from our satisfied
+						Don&apos;t just take our word for it - hear from our satisfied
 						clients
 					</S.Subtitle>
 				</S.Header>
