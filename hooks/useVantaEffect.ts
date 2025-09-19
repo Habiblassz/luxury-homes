@@ -1,4 +1,3 @@
-// src/hooks/useVantaEffect.ts
 import { useEffect, useRef } from "react";
 
 declare global {

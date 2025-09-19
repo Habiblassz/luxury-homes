@@ -1,6 +1,7 @@
 import React from "react";
 import * as S from "./PropertyCard.styles";
 import { Property } from "@/types";
+import Image from "next/image";
 
 interface PropertyCardProps {
 	property: Property;
@@ -11,7 +12,13 @@ const PropertyCard: React.FC<PropertyCardProps> = ({ property, delay = 0 }) => {
 	return (
 		<S.Card data-aos="fade-up" data-aos-delay={delay}>
 			<S.ImageContainer>
-				<img src={property.image} alt={property.title} loading="lazy" />
+				<Image
+					src={property.image}
+					alt={property.title}
+					loading="lazy"
+					width={100}
+					height={100}
+				/>
 				<S.StatusBadge type={property.type}>
 					{property.type === "sale" ? "For Sale" : "For Rent"}
 				</S.StatusBadge>

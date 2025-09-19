@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import * as S from "./Testimonials.styles";
 import { testimonials } from "@/utils/constants";
+import Image from "next/image";
 
 const Testimonials: React.FC = () => {
 	useEffect(() => {
@@ -24,7 +25,8 @@ const Testimonials: React.FC = () => {
 				<S.Header>
 					<S.Title data-aos="fade-up">What Our Clients Say</S.Title>
 					<S.Subtitle data-aos="fade-up" data-aos-delay="100">
-						Don't just take our word for it - hear from our satisfied clients
+						Don{`&apos`}t just take our word for it - hear from our satisfied
+						clients
 					</S.Subtitle>
 				</S.Header>
 
@@ -35,7 +37,13 @@ const Testimonials: React.FC = () => {
 							data-aos="fade-up"
 							data-aos-delay={index * 100}>
 							<S.TestimonialHeader>
-								<S.Avatar src={testimonial.image} alt={testimonial.name} />
+								<Image
+									src={testimonial.image}
+									alt={testimonial.name}
+									width={3}
+									height={3}
+									style={{ borderRadius: "999px" }}
+								/>
 								<S.TestimonialInfo>
 									<S.Name>{testimonial.name}</S.Name>
 									<S.Role>{testimonial.role}</S.Role>

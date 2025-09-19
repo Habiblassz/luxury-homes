@@ -1,11 +1,18 @@
 import type { NextConfig } from "next";
+import styled, { isStyledComponent } from "styled-components";
 
 const nextConfig: NextConfig = {
-	compiler: {
-		styledComponents: true,
+	images: {
+		remotePatterns: [
+			{
+				protocol: "http",
+				hostname: "static.photos",
+				port: "",
+				pathname: "/**",
+			},
+		],
 	},
-	reactStrictMode: true,
-	swcMinify: true,
+	compiler: { styledComponents: true },
 };
 
 export default nextConfig;
