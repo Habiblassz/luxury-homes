@@ -18,7 +18,7 @@
 		"react": "19.1.0",
 		"react-dom": "19.1.0",
 		"react-feather": "^2.0.10",
-		"styled-components": "^6.1.19",
+		"styled-components": "^6.6.0",
 		"three": "^0.180.0",
 		"vanta": "^0.5.24"
 	},
