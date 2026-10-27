@@ -8,19 +8,23 @@
 		"start": "next start",
 		"lint": "next lint",
 		"lint:fix": "eslint --fix",
-		"test": "jest"
+		"test": "jest",
+		"test:coverage": "jest --coverage"
 	},
 	"dependencies": {
 		"@types/three": "^0.180.0",
 		"aos": "^2.3.4",
 		"feather-icons": "^4.29.0",
-		"next": "15.5.9",
+		"next": "^15.5.28",
 		"react": "19.1.0",
 		"react-dom": "19.1.0",
 		"react-feather": "^2.0.10",
 		"styled-components": "^6.1.19",
 		"three": "^0.180.0",
 		"vanta": "^0.5.24"
+	},
+	"overrides": {
+		"postcss": "^8.5.3"
 	},
 	"devDependencies": {
 		"@eslint/eslintrc": "^3",
