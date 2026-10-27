@@ -1,6 +1,14 @@
-import { Property, Testimonial, Feature } from "../types";
+import { z } from "zod";
+import {
+	PropertySchema,
+	TestimonialSchema,
+	FeatureSchema,
+	Property,
+	Testimonial,
+	Feature,
+} from "../types";
 
-export const featuredProperties: Property[] = [
+export const featuredProperties: Property[] = z.array(PropertySchema).parse([
 	{
 		id: 1,
 		title: "Modern Luxury Villa",
@@ -34,9 +42,9 @@ export const featuredProperties: Property[] = [
 		beds: 6,
 		baths: 5.5,
 	},
-];
+]);
 
-export const testimonials: Testimonial[] = [
+export const testimonials: Testimonial[] = z.array(TestimonialSchema).parse([
 	{
 		id: 1,
 		name: "Michael Johnson",
@@ -55,9 +63,9 @@ export const testimonials: Testimonial[] = [
 			"As an international investor, I needed a trustworthy partner to navigate the US real estate market. LuxuryHomes provided exceptional service and found me properties that matched my exact criteria.",
 		rating: 5,
 	},
-];
+]);
 
-export const features: Feature[] = [
+export const features: Feature[] = z.array(FeatureSchema).parse([
 	{
 		id: 1,
 		title: "Premium Properties",
@@ -77,4 +85,4 @@ export const features: Feature[] = [
 		description: "Your investment is protected with our secure processes",
 		icon: "shield",
 	},
-];
+]);

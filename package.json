@@ -21,7 +21,8 @@
 		"react-feather": "^2.0.10",
 		"styled-components": "^6.1.19",
 		"three": "^0.180.0",
-		"vanta": "^0.5.24"
+		"vanta": "^0.5.24",
+		"zod": "^4.6.7"
 	},
 	"overrides": {
 		"postcss": "^8.5.3"

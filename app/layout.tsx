@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { ErrorBoundary } from "../components/common/ErrorBoundary/ErrorBoundary";
 
 export const metadata: Metadata = {
 	title: "Luxury Homes | Lassz",
@@ -20,7 +21,9 @@ export default function RootLayout({
 					rel="stylesheet"
 				/>
 			</head>
-			<body>{children}</body>
+			<body>
+				<ErrorBoundary>{children}</ErrorBoundary>
+			</body>
 		</html>
 	);
 }
