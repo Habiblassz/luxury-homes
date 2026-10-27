@@ -83,3 +83,11 @@ To run the test suite and generate a coverage report:
 npm run test:coverage
 
 ```
+
+## Architecture
+
+This project follows a strict component-driven architecture:
+* **`components/common/`**: Contains globally shared UI elements (Header, Footer, Error Boundaries).
+* **`components/home/`**: Contains domain-specific, section-level components for the landing page (HeroSection, FeaturedProperties, Testimonials).
+* **Styling**: Styles are co-located using a `[ComponentName].styles.ts` pattern to ensure modularity and prevent CSS side-effects.
+* **Data Validation**: Static application data in `utils/constants.ts` is strictly typed and parsed at runtime using Zod schemas to guarantee structural integrity before rendering.
