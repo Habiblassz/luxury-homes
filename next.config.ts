@@ -1,18 +1,19 @@
 import type { NextConfig } from "next";
-import styled, { isStyledComponent } from "styled-components";
 
 const nextConfig: NextConfig = {
-	images: {
-		remotePatterns: [
+	async headers() {
+		return [
 			{
-				protocol: "http",
-				hostname: "static.photos",
-				port: "",
-				pathname: "/**",
+				source: "/(.*)",
+				headers: [
+					{ key: "X-Content-Type-Options", value: "nosniff" },
+					{ key: "X-Frame-Options", value: "DENY" },
+					{ key: "X-XSS-Protection", value: "1; mode=block" },
+					{ key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+				],
 			},
-		],
+		];
 	},
-	compiler: { styledComponents: true },
 };
 
 export default nextConfig;
