@@ -7,10 +7,10 @@ describe("App", () => {
 		const mockProps = {
 			Component: MockComponent,
 			pageProps: {},
-			router: {} as any,
+			router: {},
 		};
 
-		// @ts-ignore
+		// @ts-expect-error - Bypassing strict Next.js AppProps requirements for testing
 		const { getByText } = render(<App {...mockProps} />);
 		expect(getByText("Mock Page")).toBeInTheDocument();
 	});
