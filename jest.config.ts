@@ -11,6 +11,7 @@ const config = {
 		"components/**/*.{ts,tsx}",
 		"app/**/*.{ts,tsx}",
 		"!**/*.styles.ts", // Exclude styling files from logic coverage
+		"hooks/**/*.{ts,tsx}",
 	],
 	coverageThreshold: {
 		global: {
