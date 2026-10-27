@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  web:
+    image: node:20-alpine
+    working_dir: /app
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    command: sh -c "npm install && npm run dev"
+    environment:
+      - NODE_ENV=development
+      # Add any necessary NEXT_PUBLIC_ variables here later
