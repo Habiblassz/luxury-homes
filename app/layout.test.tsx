@@ -1,33 +1,27 @@
 import { render, screen } from "@testing-library/react";
 import RootLayout from "./layout";
 
-describe("RootLayout", () => {
+const ThrowError = () => {
+	throw new Error("Simulated child component failure");
+};
+
+describe("RootLayout Error Boundary", () => {
 	const originalError = console.error;
 
 	beforeAll(() => {
-		console.error = (...args) => {
-			const errorMessage = args.map(String).join(" ");
-			if (
-				errorMessage.includes("cannot be a child of <div>") ||
-				errorMessage.includes("hydration error")
-			) {
-				return;
-			}
-			originalError(...args);
-		};
+		console.error = jest.fn(); // Suppress expected error logs in test output
 	});
 
 	afterAll(() => {
 		console.error = originalError;
 	});
 
-	it("renders children within the layout", () => {
+	it("renders the error boundary fallback UI when a child component throws", () => {
 		render(
 			<RootLayout>
-				<div data-testid="child-element">Test Child</div>
+				<ThrowError />
 			</RootLayout>,
 		);
-
-		expect(screen.getByTestId("child-element")).toBeInTheDocument();
+		expect(screen.getByTestId("error-boundary-fallback")).toBeInTheDocument();
 	});
 });
